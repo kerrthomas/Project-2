@@ -1,4 +1,4 @@
-const apiKey = "api.giphy.com/v1/gifs/search";
+
 
 window.addEventListener('load', (event) => {
     console.log('Page has loaded');
