@@ -3,16 +3,17 @@
 window.addEventListener('load', (event) => {
     console.log('Page has loaded');
 
-document.getElementById('search').addEventListener('click', () => {
+    document.getElementById('search').addEventListener('click', () => {
     console.log('Button was clicked');
     let searchString = document.getElementById('searchbar').value;
     console.log('The user is searching for', searchString);
 
-    fetch(`api.giphy.com/v1/gifs/search&q=${searchString}&maxresults=20&key=${apiKey}`)
+    fetch(`api.giphy.com/v1/gifs/search&q=${searchString}&maxresults=20&api_key=${apiKey}`)
     .then((res) => {
         return res.json()
       }).then((data) => {
-        
+        console.log(data);
+
         let videos = "";
         
         for(let item of data.items) {
