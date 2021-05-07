@@ -8,20 +8,20 @@ window.addEventListener('load', (event) => {
     let searchString = document.getElementById('searchbar').value;
     console.log('The user is searching for', searchString);
 
-    fetch(`api.giphy.com/v1/gifs/search&q=${searchString}&maxresults=20&api_key=${apiKey}`)
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchString}&limit=20&offset=0&rating=g&lang=en`)
     .then((res) => {
         return res.json()
       }).then((data) => {
         console.log(data);
 
-        let videos = "";
+        let myHtml = "";
         
-        for(let item of data.items) {
+        for(let item of data.items){
             console.log(item.id.videoId);
-            videos = videos + `${item.id.videoId}`
+            myHtml = myHtml + `<iframe src="https://giphy.com/embed/${item.id.videoId}" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/${searchString}-${item.id.videoId}">via GIPHY</a></p>`;
         }
 
-        document.getElementById('results').innerhtml = videos;
+        document.getElementById('results').innerhtml = myHtml;
 
     })
 
