@@ -1,4 +1,4 @@
-
+const apiKey = "Zbdpjq2vXYqV3h3O9pH6AiFM8MxsT4IP";
 
 window.addEventListener('load', (event) => {
     console.log('Page has loaded');
@@ -8,7 +8,7 @@ document.getElementById('search').addEventListener('click', () => {
     let searchString = document.getElementById('searchbar').value;
     console.log('The user is searching for', searchString);
 
-    fetch(`api.giphy.com/v1/gifs/search&q=${searchString}&maxresults=10&key=${apiKey}`)
+    fetch(`api.giphy.com/v1/gifs/search&q=${searchString}&maxresults=20&key=${apiKey}`)
     .then((res) => {
         return res.json()
       }).then((data) => {
