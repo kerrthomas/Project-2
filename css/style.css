@@ -1,0 +1,23 @@
+body {
+    color: #fff;
+    background-color: #000;
+    font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    padding: 10em;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+#searchbar {
+    border: 5px solid;
+    border-radius: 5px;
+    width: 500px;
+    margin-right: 10px;
+    flex: 50%;
+}
+@media (max-width: 320px) {
+    .flex-item-right, .flex-item-left {
+        flex: 100%;
+   }
+}
