@@ -1,4 +1,4 @@
-const apiKey = "Zbdpjq2vXYqV3h3O9pH6AiFM8MxsT4IP";
+
 
 window.addEventListener('load', (event) => {
     console.log('Page has loaded');
