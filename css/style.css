@@ -5,9 +5,23 @@ body {
     text-align: center;
     padding: 10em;
 }
-.flex-container {
+.container {
     display: flex;
     flex-wrap: wrap;
+    margin: 10px;
+    max-width: 200px;
+}
+.col-width {
+    flex-basis: 25%;
+}
+.col-width {
+    flex-basis: 50%;
+}
+.col-width {
+    flex-basis: 75%;
+}
+.col-width {
+    flex-basis: 100%;
 }
 #searchbar {
     border: 5px solid;

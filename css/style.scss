@@ -1,18 +1,27 @@
 $white: #FFFFFF;
 $black: #000000;
 $impact-font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+$columns: 4;
 
 body{
     color: $white;
-    background-color:$black;
+    background-color: $black;
     font: $impact-font;
     text-align: center;
     padding: 10em;
 }
 
-.flex-container {
+.container {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 200px;
+}
+
+@for $width from 1 through $columns {
+    .col-#{width} {
+        flex-basis: $width / $columns * 100%;
+    }
 }
 
 #searchbar {

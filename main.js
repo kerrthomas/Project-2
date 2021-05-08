@@ -2,6 +2,7 @@
 
 window.addEventListener('load', (event) => {
     console.log('Page has loaded');
+    document.getElementById('searchbar').value = null;
 
     document.getElementById('search').addEventListener('click', () => {
     console.log('Button was clicked');
@@ -13,12 +14,17 @@ window.addEventListener('load', (event) => {
         return res.json()
       }).then((data) => {
         console.log(data);
+        console.log('the resulting gifs are', data.data);
+        console.log('the first result is', data.data[0]);
 
-        let myHtml = "";
+        myHtml = "";
         
-        for(let item of data.items){
-            console.log(item.id.videoId);
-            myHtml = myHtml + `<iframe src="https://giphy.com/embed/${item.id.videoId}" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/${searchString}-${item.id.videoId}">via GIPHY</a></p>`;
+        for(let resultItem of data.data){
+            let imageUrl = resultItem.images.original.url
+            console.log(imageUrl);
+            myHtml = myHtml + `<img src=${imageUrl} />`;
+            document.getElementById('results').innerHTML = document.getElementById('results').innerHTML + `<img src=${imageUrl} />`;
+            
         }
 
         document.getElementById('results').innerhtml = myHtml;
